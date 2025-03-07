@@ -1,5 +1,5 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME: KOTHA VAMSI
+<H3>ENTER YOUR REGISTER NO: 212222040081
 <H3>EX. NO.1</H3>
 <H3>DATE</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
@@ -37,11 +37,92 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+Developed by:Preetha.S
+Register no :212222230110
+
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+
+X=data.iloc[:,:-1].values
+X
+
+y=data.iloc[:,-1].values
+y
+
+data.isnull().sum()
+
+data.duplicated()
+
+data.describe()
+
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+X_train
+
+X_test
+
+print("Lenght of X_test ",len(X_test))
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+## DATASET:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/2dfc1641-b24e-4156-a8d1-df18d8460e43)
+
+X VALUES:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/edb69d82-0e6a-4d0f-ab38-6ed5f25d388d)
+
+Y VALUES:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/f95f53c9-b209-40de-9587-0fb3018dea5c)
+
+NULL VALUES:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/946da728-2c72-470b-bfe6-06b94c42e77e)
+
+DUPLICATED VALUES:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/f89fe104-7abc-46a0-979c-9d1d2c24e817)
+
+
+DESCRIPTION:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/58a0f531-3c53-4319-a8d6-ab7b1f866846)
+
+
+NORMALIZED DATASET:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/2c7b171d-c312-4404-8cab-9af1e1721856)
+
+
+TRAINING DATA
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/b0b85b94-dad2-411e-ad0a-f7d5ba55555a)
+
+
+TESTING DATA:
+
+![image](https://github.com/Preetha-Senthamilan/Ex-1-NN/assets/119390282/8455f181-eac8-47a3-b934-4b1ee4f0197a)
+
+
 
 
 ## RESULT:
